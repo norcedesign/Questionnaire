@@ -1,0 +1,85 @@
+﻿@page
+@model Questionnaire.Pages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Entite</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Entite.EntiteId" />
+            <div class="form-group">
+                <label asp-for="Entite.FormId" class="control-label"></label>
+                <input asp-for="Entite.FormId" class="form-control" />
+                <span asp-validation-for="Entite.FormId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Entite.FirstName" class="control-label"></label>
+                <input asp-for="Entite.FirstName" class="form-control" />
+                <span asp-validation-for="Entite.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Entite.LastName" class="control-label"></label>
+                <input asp-for="Entite.LastName" class="form-control" />
+                <span asp-validation-for="Entite.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Entite.CompanyName" class="control-label"></label>
+                <input asp-for="Entite.CompanyName" class="form-control" />
+                <span asp-validation-for="Entite.CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Entite.Phone" class="control-label"></label>
+                <input asp-for="Entite.Phone" class="form-control" />
+                <span asp-validation-for="Entite.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Entite.Email" class="control-label"></label>
+                <input asp-for="Entite.Email" class="form-control" />
+                <span asp-validation-for="Entite.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Entite.Address" class="control-label"></label>
+                <input asp-for="Entite.Address" class="form-control" />
+                <span asp-validation-for="Entite.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Entite.City" class="control-label"></label>
+                <input asp-for="Entite.City" class="form-control" />
+                <span asp-validation-for="Entite.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Entite.Country" class="control-label"></label>
+                <input asp-for="Entite.Country" class="form-control" />
+                <span asp-validation-for="Entite.Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Entite.PostalCode" class="control-label"></label>
+                <input asp-for="Entite.PostalCode" class="form-control" />
+                <span asp-validation-for="Entite.PostalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Entite.DateCompletion" class="control-label"></label>
+                <input asp-for="Entite.DateCompletion" class="form-control" />
+                <span asp-validation-for="Entite.DateCompletion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

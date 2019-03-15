@@ -1,0 +1,77 @@
+﻿@page
+@model Questionnaire.Pages.Admin.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Question</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Question.QuestionId" />
+            <div class="form-group">
+                <label asp-for="Question.Label" class="control-label"></label>
+                <input asp-for="Question.Label" class="form-control" />
+                <span asp-validation-for="Question.Label" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Question.Type" class="control-label"></label>               
+
+                <select asp-for="Question.Type" asp-items="Model.TypeRep">
+                    <option value="">...</option>
+                </select>
+                <span asp-validation-for="Question.Type" class="text-danger"></span>
+            </div>
+            <div class="well">
+                <b>Choix de réponse</b>
+                <ul>
+                    @foreach (var opt in Model.Options)
+                    {
+                        <li>@opt.Label</li>
+                    }
+                </ul>
+                <div class="form-group">
+                    <table>
+                        <tr>
+                            <td>
+                                <label asp-for="uneOption.Label" class="control-label"></label>
+                            </td>
+                            <td>
+                                <label asp-for="uneOption.Ordre" class="control-label"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input asp-for="uneOption.Label" class="form-control" />
+                                <span asp-validation-for="uneOption.Label" class="text-danger"></span>
+                            </td>
+
+                            <td>
+                                <input asp-for="uneOption.Ordre" class="form-control" />
+                                <span asp-validation-for="uneOption.Ordre" class="text-danger"></span>
+                            </td>
+                        </tr>
+                    </table>
+
+
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
